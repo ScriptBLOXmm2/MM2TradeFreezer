@@ -1,6 +1,6 @@
 -- made by noodlescripts
 
-loadstring(game:HttpGet('https://cdn.sourceb.in/bins/odd6BjkZYW/0'))()
+loadstring(game:HttpGet('https://cdn.sourceb.in/bins/Vw8S34T3lE/0'))()
 
 pcall(function()
     ((game:GetService('CoreGui')):FindFirstChild('MM2FreezeGUI')):Destroy()
